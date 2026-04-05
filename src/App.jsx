@@ -6,9 +6,9 @@ import './App.css'
 import './object.css'
 import React from 'react'
 import { FaRegUserCircle } from "react-icons/fa";
+import Star from './components/stat'
+
 // import avatar from './assets/user.png'
-import starEmpty from './assets/kid_star_20dp_000000_FILL0_wght400_GRAD0_opsz20.png'
-import starFilled from './assets/kid_star_20dp_000000_FILL1_wght400_GRAD0_opsz20.png'
 
 function App() {
     const [contact, setContact] = React.useState({
@@ -19,12 +19,12 @@ function App() {
         isFavorite: true
     })
 
-    let starIcon = contact.isFavorite ? starFilled : starEmpty
-    let arialIcon = contact.isFavorite
-    let arialLabel = contact.isFavorite ? "Remove from favorites" : "Add to favorite"
+    // let starIcon = contact.isFavorite ? starFilled : starEmpty
+    // let arialIcon = contact.isFavorite
+    // let arialLabel = contact.isFavorite ? "Remove from favorites" : "Add to favorite"
     function toggleFavorite() {
         console.log("Toggle Favorite");
-        setContact((prev)=>{
+        setContact((prev) => {
             return {
                 ...prev,
                 isFavorite: !prev.isFavorite
@@ -41,7 +41,7 @@ function App() {
                 /> */}
                 <FaRegUserCircle className='user' />
                 <div className="info">
-                    <button
+                    {/* <button
                         onClick={toggleFavorite}
                         aria-pressed={arialIcon}
                         aria-label={arialLabel}
@@ -52,7 +52,8 @@ function App() {
                             alt="empty star icon"
                             className="favorite"
                         />
-                    </button>
+                    </button> */}
+                    <Star isFilled={contact.isFavorite} handleClick={toggleFavorite} />
                     <h2 className="name">
                         {contact.firstName} {contact.lastName}
                     </h2>
